@@ -18,6 +18,7 @@
   "homepage": "https://github.com/kovidomi/nodejs-rest-weather#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "nodemailer": "^6.3.1",
     "request": "^2.88.0"
   }
 }
