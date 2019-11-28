@@ -1,13 +1,11 @@
 'use strict';
 
-let API_KEY = '33e92f887f3c3663797c4f3d30dd1e27';
-let CITY = 'Budapest';
-
+var settings = require('../../settings.json');
 var weatherApi = require('../weather/weather');
 
 exports.getCityWeather = async function (req, res) {
-    let city = req.params.city != null ? req.params.city : CITY;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
+    let city = req.params.city != null ? req.params.city : settings.default_city;
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${settings.api_key}`
 
     let result;
     result = await weatherApi.getCityWeather(url);
@@ -17,8 +15,8 @@ exports.getCityWeather = async function (req, res) {
 };
 
 exports.getMailCityWeather = async function (req, res) {
-    let city = req.params.city != null ? req.params.city : CITY;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=metric&appid=${API_KEY}`
+    let city = req.params.city != null ? req.params.city : settings.default_city;
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${settings.api_key}`
 
     let result;
     result = await weatherApi.getCityWeather(url);
