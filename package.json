@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-rest-weather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kovidomi/nodejs-rest-weather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kovidomi/nodejs-rest-weather/issues"
+  },
+  "homepage": "https://github.com/kovidomi/nodejs-rest-weather#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
