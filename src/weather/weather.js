@@ -7,7 +7,7 @@ exports.getCityWeather = function (url) {
         request(url, function (error, response, body) {
             if (error || response.statusCode != 200) {
                 console.log('error:', error);
-                return reject(error);
+                return reject(body);
             }
 
             try {
