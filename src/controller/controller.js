@@ -7,11 +7,16 @@ exports.getCityWeather = async function (req, res) {
     let city = req.params.city != null ? req.params.city : settings.default_city;
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${settings.api_key}`
 
-    let result;
-    result = await weatherApi.getCityWeather(url);
+    let cityWeather;
+    try {
+        cityWeather = await weatherApi.getCityWeather(url);
+    } catch(e) {
+        cityWeather = e;
+        console.log(e);
+    }
 
-    console.log(result);
-    res.send(result)
+    console.log(cityWeather);
+    res.send(cityWeather)
 };
 
 exports.getMailCityWeather = async function (req, res) {
@@ -19,10 +24,17 @@ exports.getMailCityWeather = async function (req, res) {
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${settings.api_key}`
 
     let cityWeather;
-    cityWeather = await weatherApi.getCityWeather(url);
+    try {
+        cityWeather = await weatherApi.getCityWeather(url);
+    } catch(e) {
+        cityWeather = e;
+        console.log(e);
+        return res.send(cityWeather)
+    }
 
     const mailer = require('../mail/mail')
-    let subject = 'City temperature'
+
+    let subject = `Current temperature in ${cityWeather.city}`
     let text = `It's ${cityWeather.temp} degrees in ${cityWeather.city}!`
     mailer.sendMail(subject, text, settings.email_receiver)
 
