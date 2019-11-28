@@ -12,8 +12,7 @@ exports.getCityWeather = function (url) {
 
             try {
                 let weather = JSON.parse(body)
-                let message = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-                resolve(message);
+                resolve({ city: weather.name, temp: weather.main.temp });
             } catch (e) {
                 reject(e);
             }
