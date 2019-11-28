@@ -3,6 +3,11 @@
 module.exports = function (app) {
     var weatherController = require('../controller/controller');
 
+    app.route('/')
+        .get(function (req, res) {
+            res.redirect('weather')
+        });
+
     app.route('/weather')
         .get(weatherController.getCityWeather);
 
