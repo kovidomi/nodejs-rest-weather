@@ -2,8 +2,7 @@
     "api_key": "33e92f887f3c3663797c4f3d30dd1e27",
     "default_city": "Budapest",
     "service": "gmail",
-    "email_sender_user": "",
+    "email_sender": "",
     "email_sender_pass": "",
-    "email_receiver_user": "",
-    "email_receiver_pass": ""
+    "email_receiver": ""
 }
